@@ -1,6 +1,7 @@
 package com.bodastage.e4.clock.ui.views;
 
 import java.net.URL;
+import java.time.ZoneId;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
@@ -14,6 +15,8 @@ import org.eclipse.jface.resource.JFaceResources;
 import org.eclipse.jface.resource.LocalResourceManager;
 import org.eclipse.jface.resource.ResourceManager;
 import org.eclipse.jface.viewers.DelegatingStyledCellLabelProvider;
+import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerFilter;
@@ -50,20 +53,34 @@ public class TimeZoneTreeView {
 		treeViewer.setContentProvider(new TimeZoneContentProvider());
 		treeViewer.setInput(new Object[] { TimeZoneComparator.getTimeZones() });
 
-		//Reverse sorting
+		// Reverse sorting
 		treeViewer.setData("REVERSE", Boolean.TRUE);
 		treeViewer.setComparator(new TimeZoneViewerComparator());
 
-		//Filtering
+		// Filtering
 		treeViewer.setFilters(new ViewerFilter[] { new TimeZoneViewerFilter("GMT") });
-		
-		//Expand tree automatically
+
+		// Expand tree automatically
 		treeViewer.setExpandPreCheckFilters(true);
-		
+
 		treeViewer.addDoubleClickListener(event -> {
 			Viewer viewer = event.getViewer();
 			Shell shell = viewer.getControl().getShell();
-			MessageDialog.openInformation(shell, "Double click", "Double click detected");
+
+			ISelection sel = viewer.getSelection();
+			Object selectedValue;
+
+			if (!(sel instanceof IStructuredSelection) || sel.isEmpty()) {
+				selectedValue = null;
+			} else {
+				selectedValue = ((IStructuredSelection) sel).getFirstElement();
+			}
+			
+			if (selectedValue instanceof ZoneId) {
+				ZoneId timeZone = (ZoneId) selectedValue;
+				MessageDialog.openInformation(shell, timeZone.getId(), timeZone.toString());
+			}
+
 		});
 	}
 
