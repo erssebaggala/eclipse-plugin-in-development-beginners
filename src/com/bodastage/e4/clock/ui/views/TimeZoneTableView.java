@@ -3,8 +3,11 @@ package com.bodastage.e4.clock.ui.views;
 import java.time.ZoneId;
 
 import javax.annotation.PostConstruct;
+import javax.inject.Inject;
 
+import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.di.Focus;
+import org.eclipse.e4.ui.workbench.modeling.ESelectionService;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.SWT;

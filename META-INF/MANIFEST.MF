@@ -8,6 +8,8 @@ Bundle-Vendor: Bodastage
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.swt,
- org.eclipse.e4.ui.di;bundle-version="1.1.100"
+ org.eclipse.e4.ui.di;bundle-version="1.1.100",
+ org.eclipse.e4.ui.workbench;bundle-version="1.4.0",
+ org.eclipse.e4.core.di.annotations;bundle-version="1.5.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
