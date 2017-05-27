@@ -31,6 +31,13 @@
             name="Time Zone Tree View"
             restorable="true">
       </e4view>
+      <e4view
+            category="com.bodastage.e4.clock.ui"
+            class="com.bodastage.e4.clock.ui.views.TimeZoneTableView"
+            id="com.bodastage.e4.clock.ui.views.TimeZoneTableView"
+            name="Time Zone Table View"
+            restorable="true">
+      </e4view>
    </extension>
 
 </plugin>
