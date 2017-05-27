@@ -6,6 +6,7 @@ import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
 import org.eclipse.e4.ui.di.Focus;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.resource.FontRegistry;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
@@ -14,9 +15,11 @@ import org.eclipse.jface.resource.LocalResourceManager;
 import org.eclipse.jface.resource.ResourceManager;
 import org.eclipse.jface.viewers.DelegatingStyledCellLabelProvider;
 import org.eclipse.jface.viewers.TreeViewer;
+import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerFilter;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.ISharedImages;
 
 import com.bodastage.e4.clock.ui.internal.TimeZoneComparator;
@@ -56,6 +59,12 @@ public class TimeZoneTreeView {
 		
 		//Expand tree automatically
 		treeViewer.setExpandPreCheckFilters(true);
+		
+		treeViewer.addDoubleClickListener(event -> {
+			Viewer viewer = event.getViewer();
+			Shell shell = viewer.getControl().getShell();
+			MessageDialog.openInformation(shell, "Double click", "Double click detected");
+		});
 	}
 
 	@Focus
