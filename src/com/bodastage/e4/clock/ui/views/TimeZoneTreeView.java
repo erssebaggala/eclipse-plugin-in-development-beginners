@@ -27,6 +27,7 @@ import org.eclipse.ui.ISharedImages;
 
 import com.bodastage.e4.clock.ui.internal.TimeZoneComparator;
 import com.bodastage.e4.clock.ui.internal.TimeZoneContentProvider;
+import com.bodastage.e4.clock.ui.internal.TimeZoneDialog;
 import com.bodastage.e4.clock.ui.internal.TimeZoneLabelProvider;
 import com.bodastage.e4.clock.ui.internal.TimeZoneViewerComparator;
 import com.bodastage.e4.clock.ui.internal.TimeZoneViewerFilter;
@@ -78,7 +79,7 @@ public class TimeZoneTreeView {
 			
 			if (selectedValue instanceof ZoneId) {
 				ZoneId timeZone = (ZoneId) selectedValue;
-				MessageDialog.openInformation(shell, timeZone.getId(), timeZone.toString());
+				new TimeZoneDialog(shell, timeZone).open();
 			}
 
 		});
