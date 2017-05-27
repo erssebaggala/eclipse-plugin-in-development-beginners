@@ -13,6 +13,7 @@ import org.eclipse.swt.widgets.Composite;
 import com.bodastage.e4.clock.ui.internal.TimeZoneDisplayNameColumn;
 import com.bodastage.e4.clock.ui.internal.TimeZoneIDColumn;
 import com.bodastage.e4.clock.ui.internal.TimeZoneOffsetColumn;
+import com.bodastage.e4.clock.ui.internal.TimeZoneSummerTimeColumn;
 
 public class TimeZoneTableView {
 	private TableViewer tableViewer;
@@ -28,6 +29,7 @@ public class TimeZoneTableView {
 		new TimeZoneIDColumn().addColumnTo(tableViewer);
 		new TimeZoneDisplayNameColumn().addColumnTo(tableViewer);
 		new TimeZoneOffsetColumn().addColumnTo(tableViewer);
+		new TimeZoneSummerTimeColumn().addColumnTo(tableViewer);
 		tableViewer.setInput(ZoneId.getAvailableZoneIds() // get ids
 				.stream().map(ZoneId::of).toArray());
 		
