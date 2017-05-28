@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?eclipse version="3.4"?>
 <plugin>
 
    <extension
@@ -16,28 +15,35 @@
             id="com.bodastage.e4.clock.ui.views.ClockView">
       </view>
       <view
+            name="Time Zone View"
+            icon="/icons/sample.gif"
             category="com.bodastage.e4.clock.ui"
             class="com.bodastage.e4.clock.ui.views.TimeZoneView"
-            icon="/icons/sample.gif"
-            id="com.bodastage.e4.clock.ui.views.TimeZoneView"
-            name="Time Zone View"
-            restorable="true">
+            restorable="true"
+            id="com.bodastage.e4.clock.ui.views.TimeZoneView">
       </view>
       <e4view
+            name="Time Zone Tree View"
+            icon="icons/sample.gif"
             category="com.bodastage.e4.clock.ui"
             class="com.bodastage.e4.clock.ui.views.TimeZoneTreeView"
-            icon="icons/sample.gif"
-            id="com.bodastage.e4.clock.ui.views.TimeZoneTreeView"
-            name="Time Zone Tree View"
-            restorable="true">
+            restorable="true"
+            id="com.bodastage.e4.clock.ui.views.TimeZoneTreeView">
       </e4view>
       <e4view
+            name="Time Zone Table View"
             category="com.bodastage.e4.clock.ui"
             class="com.bodastage.e4.clock.ui.views.TimeZoneTableView"
-            id="com.bodastage.e4.clock.ui.views.TimeZoneTableView"
-            name="Time Zone Table View"
-            restorable="true">
+            restorable="true"
+            id="com.bodastage.e4.clock.ui.views.TimeZoneTableView">
       </e4view>
+   </extension>
+   <extension
+         id="com.bodastage.e4.clock.ui.fragment"
+         point="org.eclipse.e4.workbench.model">
+      <fragment
+            uri="fragment.e4xmi">
+      </fragment>
    </extension>
 
 </plugin>
