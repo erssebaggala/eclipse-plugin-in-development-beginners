@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
 <fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:commands="http://www.eclipse.org/ui/2010/UIModel/application/commands" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_PPqj4EOQEeedq-IevvWAag">
+  <imports xsi:type="commands:BindingContext" xmi:id="_qxuDoEcSEeehrvUiei9LJA" elementId="org.eclipse.ui.contexts.dialogAndWindow"/>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_p3R7sEOQEeedq-IevvWAag" featurename="commands" parentElementId="org.eclipse.e4.legacy.ide.application">
     <elements xsi:type="commands:Command" xmi:id="_4tuLgEOQEeedq-IevvWAag" elementId="com.bodastage.e4.clock.ui.command.hello" commandName="Hello" description="Says Hello World"/>
   </fragments>
@@ -9,6 +10,11 @@
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_hiF-4EawEeehrvUiei9LJA" featurename="menuContributions" parentElementId="org.eclipse.e4.legacy.ide.application">
     <elements xsi:type="menu:MenuContribution" xmi:id="_CnpqgEaxEeehrvUiei9LJA" elementId="com.bodastage.e4.clock.ui.menucontribution.0" parentId="help">
       <children xsi:type="menu:HandledMenuItem" xmi:id="_JsBsMEaxEeehrvUiei9LJA" elementId="com.bodastage.e4.clock.ui.handledmenuitem.Hello" label="Hello" iconURI="platform:/plugin/com.bodastage.e4.clock.ui/icons/sample.gif" command="_4tuLgEOQEeedq-IevvWAag"/>
+    </elements>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_3Tx2AEcSEeehrvUiei9LJA" featurename="bindingTables" parentElementId="org.eclipse.e4.legacy.ide.application">
+    <elements xsi:type="commands:BindingTable" xmi:id="_f9nycEcTEeehrvUiei9LJA" elementId="com.bodastage.e4.clock.ui.bindingtable.0" bindingContext="_qxuDoEcSEeehrvUiei9LJA">
+      <bindings xmi:id="_syrZUEcTEeehrvUiei9LJA" elementId="com.bodastage.e4.clock.ui.keybinding.0" keySequence="M1+9" command="_4tuLgEOQEeedq-IevvWAag"/>
     </elements>
   </fragments>
 </fragment:ModelFragments>
