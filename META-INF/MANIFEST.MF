@@ -14,7 +14,8 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.e4.ui.services;bundle-version="1.2.100",
  org.eclipse.e4.ui.model.workbench;bundle-version="1.2.0.v20160229-1459",
  org.eclipse.e4.core.di,
- org.eclipse.rcp;bundle-version="4.6.3"
+ org.eclipse.rcp;bundle-version="4.6.3",
+ org.eclipse.jface
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: javax.inject;version="1.0.0"
 Bundle-ActivationPolicy: lazy
