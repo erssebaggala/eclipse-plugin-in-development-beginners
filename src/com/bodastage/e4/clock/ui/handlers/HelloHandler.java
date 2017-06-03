@@ -8,16 +8,21 @@ import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.ui.di.UISynchronize;
 import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.ui.progress.UIJob;
 
 public class HelloHandler {
 	@Execute
 	public void execute(final UISynchronize display) {
-		UIJob job = new UIJob("About to say hello") {
-			public IStatus runInUIThread(IProgressMonitor monitor) {
+		Job job = new Job("About to say hello") {
+			protected IStatus run(IProgressMonitor monitor) {
 				try {
-					Thread.sleep(5000);
+					monitor.beginTask("Preparing", 5000);
+					for (int i = 0; i < 50; i++) {
+						Thread.sleep(100);
+						monitor.worked(100);
+					}
 				} catch (InterruptedException e) {
+				} finally {
+					monitor.done();
 				}
 
 				display.asyncExec(() -> {
