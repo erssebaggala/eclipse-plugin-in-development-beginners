@@ -39,9 +39,10 @@ import com.bodastage.e4.clock.ui.internal.TimeZoneViewerFilter;
 public class TimeZoneTreeView {
 	private TreeViewer treeViewer;
 
-	@Preference(nodePath = "com.bodastage.e4.clock.ui")
+	@Preference(nodePath = "com.bodastage.e4.clock.ui", value="launchCount")
 	@Inject
-	IEclipsePreferences preferences;
+	//IEclipsePreferences preferences;
+	int launchCount;
 
 	@Inject
 	private ISharedImages images;
@@ -105,7 +106,7 @@ public class TimeZoneTreeView {
 		});
 
 		// Launch count
-		System.out.println("Launch count is: " + preferences.getInt("launchCount", 0));
+		System.out.println("Launch count is: " + launchCount);
 	}
 
 	@Focus
