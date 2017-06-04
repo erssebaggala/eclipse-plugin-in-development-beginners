@@ -6,7 +6,9 @@ import java.time.ZoneId;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
+import org.eclipse.core.runtime.preferences.IEclipsePreferences;
 import org.eclipse.e4.core.di.annotations.Optional;
+import org.eclipse.e4.core.di.extensions.Preference;
 import org.eclipse.e4.ui.di.Focus;
 import org.eclipse.e4.ui.workbench.modeling.ESelectionService;
 import org.eclipse.jface.dialogs.MessageDialog;
@@ -37,13 +39,17 @@ import com.bodastage.e4.clock.ui.internal.TimeZoneViewerFilter;
 public class TimeZoneTreeView {
 	private TreeViewer treeViewer;
 
+	@Preference(nodePath = "com.bodastage.e4.clock.ui")
+	@Inject
+	IEclipsePreferences preferences;
+
 	@Inject
 	private ISharedImages images;
 
 	@Inject
 	@Optional
 	private ESelectionService selectionService;
-	
+
 	@PostConstruct
 	public void create(Composite parent) {
 		ResourceManager rm = JFaceResources.getResources();
@@ -82,14 +88,14 @@ public class TimeZoneTreeView {
 			} else {
 				selectedValue = ((IStructuredSelection) sel).getFirstElement();
 			}
-			
+
 			if (selectedValue instanceof ZoneId) {
 				ZoneId timeZone = (ZoneId) selectedValue;
 				new TimeZoneDialog(shell, timeZone).open();
 			}
 
 		});
-		
+
 		treeViewer.addSelectionChangedListener(event -> {
 			// forward selection
 			Object selection = ((IStructuredSelection) event.getSelection()).getFirstElement();
@@ -97,6 +103,9 @@ public class TimeZoneTreeView {
 				selectionService.setSelection(selection);
 			}
 		});
+
+		// Launch count
+		System.out.println("Launch count is: " + preferences.getInt("launchCount", 0));
 	}
 
 	@Focus
