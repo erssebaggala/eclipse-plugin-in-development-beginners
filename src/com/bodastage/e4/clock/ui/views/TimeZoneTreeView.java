@@ -39,9 +39,6 @@ import com.bodastage.e4.clock.ui.internal.TimeZoneViewerFilter;
 public class TimeZoneTreeView {
 	private TreeViewer treeViewer;
 
-	@Preference(nodePath = "com.bodastage.e4.clock.ui", value="launchCount")
-	@Inject
-	//IEclipsePreferences preferences;
 	int launchCount;
 
 	@Inject
@@ -114,4 +111,9 @@ public class TimeZoneTreeView {
 		treeViewer.getControl().setFocus();
 	}
 
+	@Inject
+	public void setLaunchCount(
+			@Preference(nodePath = "com.bodastage.e4.clock.ui", value = "launchCount") int launchCount) {
+		this.launchCount = launchCount;
+	}
 }
