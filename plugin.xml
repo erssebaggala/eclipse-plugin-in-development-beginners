@@ -63,6 +63,12 @@
          class="com.bodastage.e4.clock.ui.ClockPreferencePage"
          id="com.bodastage.e4.clock.ui.preference.page"
          name="Clock">
+         <keywordReference id="com.bodastage.e4.clock.ui.keywords"/>
    </page>
+</extension>
+<extension
+      id="com.bodastage.e4.clock.ui.keywords"
+      name="offset timezone"
+      point="org.eclipse.ui.keywords">
 </extension>
 </plugin>
