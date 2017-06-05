@@ -59,6 +59,7 @@
 <extension
       point="org.eclipse.ui.preferencePages">
    <page
+   		 category="org.eclipse.ui.preferencePages.Workbench"
          class="com.bodastage.e4.clock.ui.ClockPreferencePage"
          id="com.bodastage.e4.clock.ui.preference.page"
          name="Clock">
